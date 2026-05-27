@@ -3,6 +3,15 @@
   become: true
   apt:
     upgrade: dist
+    
+- name: Install required packages
+  apt:
+    name:
+      - gnupg
+      - ca-certificates
+      - apt-transport-https
+    state: present
+    update_cache: yes
 
 - name: Add repository ppa:git-core/ppa
   become: true
